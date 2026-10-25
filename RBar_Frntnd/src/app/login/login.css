@@ -1,0 +1,204 @@
+.header
+{
+  background-color: #000028;
+  background-color: #111111;
+  color: white;
+  margin:0;
+  padding:0;
+}
+
+.nav{
+  background-color: #0A0936;
+  margin:0;
+  padding:0;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  min-height: 2vh;
+  padding: 0.1vh;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+header, .nav{
+  flex-shrink: 0;
+}
+
+.box {
+  color: white;
+  border-radius: 0.4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+  text-align: center;
+}
+
+.main{
+  min-height: 50rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer{
+  flex-shrink: 0;
+  height: 15rem;
+  width: auto;
+  color: white;
+  background-color: #4D4D4D;
+}
+
+.left-side{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:  space-evenly;
+  background-color: red;
+  min-height: 100%;
+  min-width: 15rem;
+}
+.left-side-buttons{
+  min-height: 3rem;
+  min-width: 100%;
+  border-radius:  0rem 3rem 3rem 0rem  ;
+  background-color: blue;
+}
+
+.right-side{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+:host {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* header, nav, main, footer */
+  min-height: 100vh;
+}
+.flex-card-header-icon
+{
+  width: max(20px, 100%);
+  height: max(20px, 100%);
+
+  display: flex;
+  flex-direction: row;
+}
+ng serve
+.header {
+  background-color: #000028;
+  color: white;
+}
+
+.flex-card-header-icon {
+  width: 98%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Függőlegesen középre igazítja a képet és a szöveget */
+  justify-content: space-between; /* A képet balra, a többi elemet elosztva tartja */
+}
+/* A képet csomagoló konténer, amin a színátmenet lesz */
+.icon-wrapper {
+  position: relative;
+  width: 10vh;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+@property --angle {
+  syntax:"<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --resize{
+  syntax:'<percentage>';
+  initial-value: 4%;
+  inherits: false;
+}
+
+/* A színátmenetes háttér/keret mint álelem */
+.icon-wrapper::after, .icon-wrapper::before  {
+  --angle: 0deg;
+  --resize:4%;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* A 'translate' helyett a 'transform' az elterjedtebb/kompatibilisebb */
+  width: calc(100% + var(--resize)); /* A padding helyett a mérettel adjuk meg a keret vastagságát */
+  height: calc(100% + var(--resize));
+  background: conic-gradient(from var(--angle), darkblue,black,darkred,darkmagenta,black,darkcyan,darkblue);
+  border-radius: 50%;
+  z-index: 1; /* A keret a háttérben lesz */
+  animation: 2.5s spin linear infinite, 0.75s pulse ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100%{
+    --resize: 4%;
+  }
+  50%{--resize: 10%}
+}
+
+@keyframes spin {
+  from{
+    --angle: 0deg;
+  }to{
+     --angle: 360deg;
+   }
+}
+
+.icon-wrapper::before{
+  filter: blur(20px);
+  width: calc(130% + var(--resize)); /* A padding helyett a mérettel adjuk meg a keret vastagságát */
+  height: calc(130% + var(--resize));
+  opacity: 100%;
+}
+/* Maga a PNG kép */
+.icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  position: relative;
+  overflow: visible;
+  z-index: 2; /* A kép a keret TETEJÉRE kerül */
+}
+
+.flex-card-header-icon p {
+  font-size: 10vh; /* Szükség szerint módosítható */
+  text-align: center; /* A paragrafuson belüli szöveget középre zárja */
+  flex: 1; /* Elfoglalja a maradék helyet, így a szöveg pontosan középre kerül */
+  margin: 0;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 432px;
+  height: 81px;
+  font-size: 20px;
+  gap: 20px;
+  border-radius: 41px;
+  padding-left: 10px;
+}
+.button img {
+  display: block;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 35px;
+}

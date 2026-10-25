@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="flex-card-header-icon">
+    <div class="icon-wrapper">
+      <img src="/assets/RLargeBarIcon.png" alt="R bár">
+    </div>
+    <p>R Bár</p>
+  </div>
+</header>
+<nav class="nav">
+  <a href="http://localhost:4200/" class="box">Főoldal</a>
+  <a href="http://localhost:4200/login" class="box">
+  {{strLogIn}}
+</a>
+  <a href="http://localhost:4200/products" class="box">Kínálatunk</a>
+  <p class="box">Játékaink</p>
+  <p class="box">Események</p>
+</nav>
+<main class="main">
+  <button class="button" (click)="BtnLoginGoogle()">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/3840px-Google_%22G%22_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+      alt="Google">
+    Bejelentkezés Google Accounttal
+  </button>
+
+  <button class="button" (click)="BtnLoginMicrosoft()">
+    <img src="https://mailmeteor.com/logos/assets/PNG/Microsoft_Logo_512px.png" alt="Microsoft">
+    Bejelentkezés Microsoft Accounttal
+    <div class="Message">Még nem müködik</div>
+  </button>
+</main>
+<footer class="footer">
+  Foot
+</footer>

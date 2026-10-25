@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="flex-card-header-icon">
+    <div class="icon-wrapper">
+      <img src="/assets/RLargeBarIcon.png" alt="R bár">
+    </div>
+    <p>R Bár</p>
+  </div>
+</header>
+<nav class="nav">
+  <a href="http://localhost:4200/" class="box">Főoldal</a>
+  <a href="http://localhost:4200/login" class="box">
+    {{strLogIn}}
+  </a>
+  <a href="http://localhost:4200/products" class="box">Kínálatunk</a>
+  <p class="box">Játékaink</p>
+  <p class="box">Események</p>
+</nav>
+<main class="main">
+  <div class="left-side">
+    <p class="left-side-buttons" (click)="choseAll()">Minden</p>
+    <p class="left-side-buttons">Szószok</p>
+    <p class="left-side-buttons">Sültek</p>
+    <p class="left-side-buttons" (click)="choseAlcohol()">Alkoholok</p>
+    <p class="left-side-buttons">Alkohol mentes italok</p>
+  </div>
+  <div class="right-side">
+    <div class="right-side-top">
+      <a>Találtál valamit ami tetszik? Rendelj tőlünk most!</a>
+      <button>Wolt</button>
+    </div>
+    <div class="card-container">
+      @for (product of chosedList; track product.productId) {
+      <div class="card">
+        <img [src]="product.photoLink">
+        <div class="content">
+          <h2>{{ product.name }}</h2>
+          <h2>{{ product.price }} Ft</h2>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  Foot
+</footer>
